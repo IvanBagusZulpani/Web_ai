@@ -94,6 +94,7 @@
           <th>ID</th>
           <th>Device ID</th>
           <th>Hasil Pembacaan</th>
+          <th>Rekap Waktu</th>
           
         </tr>
       </thead>
@@ -113,6 +114,18 @@
   </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function loadMeteran() {
+    $.get("{{ route('meteran.data') }}", function(data) {
+      $("#meteran-table").html(data);
+    });
+  }
+
+  // refresh tiap 1 detik
+  setInterval(loadMeteran, 1000);
+</script>
+
 
 <script>
   const waktu = ["10:00","10:05","10:10","10:15","10:20"];
