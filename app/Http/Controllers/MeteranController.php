@@ -11,4 +11,5 @@ class MeteranController extends Controller
         $meteran = Meteran::latest()->get();
         return view('disini', compact('meteran'));
     }
+    
 }
