@@ -87,30 +87,28 @@
 
   <!-- Alarm list -->
   <div class="card" style="grid-column: span 2;">
-    <h3>Daftar Alarm</h3>
+    <h3>Meteran</h3>
     <table class="alarms">
       <thead>
         <tr>
-          <th>Nama</th>
-          <th>Waktu</th>
-          <th>Severity</th>
-          <th>Tipe</th>
+          <th>ID</th>
+          <th>Device ID</th>
+          <th>Hasil Pembacaan</th>
+          
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Alarm 001</td>
-          <td>18-09-2025 14:20</td>
-          <td><span class="badge critical">Critical</span></td>
-          <td>Ketinggian</td>
-        </tr>
-        <tr>
-          <td>Alarm 002</td>
-          <td>18-09-2025 13:50</td>
-          <td><span class="badge minor">Minor</span></td>
-          <td>Sensor</td>
-        </tr>
-      </tbody>
+            <tbody>
+            @foreach ($meteran as $item)
+                <tr>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->device_id }}</td>
+                    <td>{{ $item->reading_value }}</td>
+                    <td>{{ $item->created_at }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+        </tbody>
     </table>
   </div>
 

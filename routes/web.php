@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MeteranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('disini');
-});
-Route::get('/disini',[DashboardController::class,'indexs']);
+
+Route::get('/', [MeteranController::class, 'index']);
+Route::get('/disini',[DashboardController::class,'index']);
+Route::get('/meteran',[MeteranController::class,'index']);
