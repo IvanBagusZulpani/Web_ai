@@ -70,6 +70,25 @@
   🌊 Dashboard Monitoring Ketinggian Air
 </header>
 
+
+<div class="card" style="grid-column: span 2;">
+  <h3>Live Kamera Laptop</h3>
+  <video id="liveCamera" autoplay playsinline width="50%" style="border-radius: 8px;"></video>
+</div>
+
+<script>
+  async function startCamera() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      document.getElementById('liveCamera').srcObject = stream;
+    } catch (err) {
+      document.getElementById('liveCamera').outerHTML = "<p style='color:red'>Tidak bisa akses kamera laptop</p>";
+    }
+  }
+  startCamera();
+</script>
+
+
 <div class="dashboard">
 
   <!-- Grafik -->
@@ -117,7 +136,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   function loadMeteran() {
-    $.get("{{ route('meteran.data') }}", function(data) {
+    $.get("{{ route('meteran') }}", function(data) {
       $("#meteran-table").html(data);
     });
   }

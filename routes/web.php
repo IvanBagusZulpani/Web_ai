@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MeteranController::class, 'index']);
 Route::get('/disini',[DashboardController::class,'index']);
-Route::get('/meteran',[MeteranController::class,'index']);
+Route::get('/meteran',[MeteranController::class,'index'])->name('meteran');
